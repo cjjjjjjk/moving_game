@@ -116,7 +116,7 @@ ctx.font = "Bold 20px Consolas";
 ctx.fillStyle = "black";
 ctx.fillText(`Your score: ${totalPoints}`, canvas.width / 2 - 100, canvas.height / 2 + 30);
 
-console.log(finalTime)
+// console.log(finalTime)
 }
 gameOver()
 
@@ -124,21 +124,22 @@ let coutPoint = 0;
 let start = 0;
 function updateGame()
 { 
+    if(isGameover) return;
+    // draw score box
     let currentTime = Date.now()
     coutPoint =Math.floor((currentTime-startTime)/1000)
     scoreBox.textContent = `${coutPoint}`
-    if(isGamestart) ;
-    console.log(isGamestart)
+
+    // refresh canvas screen
     ctx.clearRect(0,0, canvas.width, canvas.height)
 
     playerX += moveX;
-    // console.log(playerX)
     playerX = Math.max(10, Math.min(playerX, canvas.width - playerWidth/2+8))
     drawPlayer()
     start++;
     playerFrame = Math.floor(start/10) % maxFrame; // delay update (It 's too speed)
     
-// Stones
+    // Stones
     if(Math.random() < 0.05)
     {
         const randomX = Math.random()*canvas.width;
@@ -157,6 +158,20 @@ function updateGame()
     {
         stones[i].y += stones[i].speed;
         drawStone(stones[i]);
+        // Draw a line
+        ctx.lineWidth = 5;
+        ctx.beginPath()
+        ctx.moveTo(stones[i].x , stones[i].y)
+        ctx.lineTo(playerX, playerY)
+
+        // gameOver logic
+        const distance = Math.sqrt((stones[i].x - playerX)**2 + (stones[i].y - playerY)**2)
+        if(distance < playerHeight/4 - 24  + stones[i].radius)
+        {
+            isGameover = true;
+            gameOver();
+            break;
+        }
     }
 
     // if(start % 1000 === 0) stoneSpeed++;
