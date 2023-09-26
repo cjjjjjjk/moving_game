@@ -1,0 +1,45 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 90vh;
+    width: 90vw;
+
+    background-color: #F3FDE8;
+}
+
+.infors{
+    margin-top: 10px;
+}
+
+#infor_block {
+    text-align: center;
+    font-family: "Consolas", sans-serif;
+    font-weight: bold;
+    margin-right: 20px;
+}
+#name{
+    font-size:large
+}
+#score_block {
+    height: 100px;
+    width: 100px;
+    border: 2px solid black;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+
+    background-color: whitesmoke;
+    font-size: xx-large;
+    color: red;
+}
+
+canvas {
+    background-color: white;
+    border: 2px solid #435334;
+    border-bottom: 6px solid #435334;
+    /* mix-blend-mode: multiply; */
+}
