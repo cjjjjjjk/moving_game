@@ -97,13 +97,13 @@ function startGame()
     updateGame()
 }
 
-function gameOver()
-{
-const currentTime = Date.now()
+// function gameOver()
+// {
+// const currentTime = Date.now()
 
-console.log(currentTime)
-}
-gameOver()
+// console.log(currentTime)
+// }
+// gameOver()
 
 
 let start = 0;
