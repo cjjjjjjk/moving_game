@@ -1,7 +1,8 @@
 const canvas = document.querySelector("#gameCanvas")
 const ctx = canvas.getContext("2d");
-
-
+const scoreBox = document.querySelector('#score_block')
+// scoreBox.textContent = "100"
+// console.log(scoreBox.innerHTML)
 
 const playerHeight = 48;
 const playerWidth = 48;
@@ -104,8 +105,8 @@ function startGame()
 
 function gameOver()
 {
-const currentTime = Date.now()
-const totalPoints = Math.floor((currentTime-startTime)/1000);
+const finalTime = Date.now()
+const totalPoints = Math.floor((finalTime-startTime)/1000);
 
 ctx.font = "Bold 50px Consolas";
 ctx.fillStyle = "black";
@@ -115,14 +116,17 @@ ctx.font = "Bold 20px Consolas";
 ctx.fillStyle = "black";
 ctx.fillText(`Your score: ${totalPoints}`, canvas.width / 2 - 100, canvas.height / 2 + 30);
 
-console.log(currentTime)
+console.log(finalTime)
 }
 gameOver()
 
-
+let coutPoint = 0;
 let start = 0;
 function updateGame()
 { 
+    let currentTime = Date.now()
+    coutPoint =Math.floor((currentTime-startTime)/1000)
+    scoreBox.textContent = `${coutPoint}`
     if(isGamestart) ;
     console.log(isGamestart)
     ctx.clearRect(0,0, canvas.width, canvas.height)
@@ -160,7 +164,6 @@ function updateGame()
     // console.log("update lần ", start)
     requestAnimationFrame(updateGame)
 }
-// startGame()
 // document.addEventListener(, startGame)
-// startGame()
+startGame()
 // console.log(playerX)
