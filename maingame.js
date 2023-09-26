@@ -19,7 +19,7 @@ let move1step = 2;
 let moveX = 0;
 let stoneSpeed = 3;
 let isGameover = false;
-
+let isGamestart = false
 let maxFrame = 4;
 
 playerImg.src = "./assets/player-indie-right.png"
@@ -67,8 +67,10 @@ function handleKeydown(e)
         case "ArrowLeft":
             moveX = -move1step;
             playerDriection = "left"; 
-             break;
-        case "ArrowRight":
+            isGamestart = true
+            break;
+            case "ArrowRight":
+            isGamestart = true
             playerDriection = "right";
             moveX = move1step;
             break;
@@ -83,17 +85,20 @@ function handleKeyup(e)
             moveX = 0;
             playerDriection = "indie-left";
             break;
-        case "ArrowRight":
+            case "ArrowRight":
             playerDriection = "indie-right";
             moveX = 0;
             break;
     }
+    // isGamestart = true
+
 }
 
 function startGame()
 {
     document.addEventListener("keydown", handleKeydown)
     document.addEventListener("keyup", handleKeyup)
+    // console.log(isGamestart)
     updateGame()
 }
 
@@ -108,7 +113,9 @@ function startGame()
 
 let start = 0;
 function updateGame()
-{
+{ 
+    if(isGamestart) ;
+    console.log(isGamestart)
     ctx.clearRect(0,0, canvas.width, canvas.height)
 
     playerX += moveX;
@@ -127,14 +134,15 @@ function updateGame()
             {
                 x: randomX,
                 y: 0,
-                radius: stoneSize<15? 15: stoneSize
+                radius: stoneSize<15? 15: stoneSize,
+                speed: Math.random()*5 +1
             }
         )
         // stoneSpeed = Math.random()*6;
     }
     for(let i = 0; i<stones.length; i++)
     {
-        stones[i].y += stoneSpeed;
+        stones[i].y += stones[i].speed;
         drawStone(stones[i]);
     }
 
