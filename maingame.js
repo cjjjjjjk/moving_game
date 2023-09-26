@@ -22,6 +22,8 @@ let isGameover = false;
 let isGamestart = false
 let maxFrame = 4;
 
+let startTime = Date.now() // Starting cout points
+
 playerImg.src = "./assets/player-indie-right.png"
 stoneImg.src = "./assets/stone.png"
 
@@ -57,8 +59,6 @@ function drawStone(stone)
     ctx.drawImage(stoneImg, stone.x - stone.radius, stone.y - stone.radius,  stone.radius*2, stone.radius*2);
 }
 
-
-// updateGame()
 
 function handleKeydown(e)
 {
@@ -102,13 +102,22 @@ function startGame()
     updateGame()
 }
 
-// function gameOver()
-// {
-// const currentTime = Date.now()
+function gameOver()
+{
+const currentTime = Date.now()
+const totalPoints = Math.floor((currentTime-startTime)/1000);
 
-// console.log(currentTime)
-// }
-// gameOver()
+ctx.font = "Bold 50px Consolas";
+ctx.fillStyle = "black";
+ctx.fillText("GAME OVER", canvas.width / 2 - 130, canvas.height / 2 - 20);
+
+ctx.font = "Bold 20px Consolas";
+ctx.fillStyle = "black";
+ctx.fillText(`Your score: ${totalPoints}`, canvas.width / 2 - 100, canvas.height / 2 + 30);
+
+console.log(currentTime)
+}
+gameOver()
 
 
 let start = 0;
@@ -151,5 +160,7 @@ function updateGame()
     // console.log("update lần ", start)
     requestAnimationFrame(updateGame)
 }
-startGame()
+// startGame()
+// document.addEventListener(, startGame)
+// startGame()
 // console.log(playerX)
