@@ -38,8 +38,27 @@ body {
 }
 
 canvas {
+    /* position: relative; */
     background-color: white;
     border: 2px solid #435334;
     border-bottom: 6px solid #435334;
     /* mix-blend-mode: multiply; */
+}
+
+#restart {
+    display: block;
+    position: fixed;
+    top: 650px;
+    left: 75px;
+
+    border: none;
+    /* mix-blend-mode: multiply; */
+    background-color: #F3FDE8;
+    
+    font-weight: Bold;
+    font-family: "Consolas", sans-serif;
+}
+#restart:hover {
+    cursor: pointer;
+    color: RED;
 }

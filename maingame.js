@@ -140,7 +140,7 @@ function updateGame()
     playerFrame = Math.floor(start/10) % maxFrame; // delay update (It 's too speed)
     
     // Stones
-    if(Math.random() < 0.05)
+    if(Math.random() < start/15000)
     {
         const randomX = Math.random()*canvas.width;
         let stoneSize = Math.random()*50
