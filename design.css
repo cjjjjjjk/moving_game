@@ -47,11 +47,9 @@ canvas {
 
 #restart {
     display: block;
-    position: fixed;
     top: 650px;
-    left: 75px;
-
     border: none;
+
     /* mix-blend-mode: multiply; */
     background-color: #F3FDE8;
     
@@ -61,4 +59,12 @@ canvas {
 #restart:hover {
     cursor: pointer;
     color: RED;
+}
+
+.gameblock
+{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    align-items: flex-start;
 }

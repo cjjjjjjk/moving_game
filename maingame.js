@@ -1,6 +1,7 @@
 const canvas = document.querySelector("#gameCanvas")
 const ctx = canvas.getContext("2d");
 const scoreBox = document.querySelector('#score_block')
+const restartBtn = document.querySelector("#restart")
 // scoreBox.textContent = "100"
 // console.log(scoreBox.innerHTML)
 
@@ -59,6 +60,15 @@ function drawStone(stone)
 {
     ctx.drawImage(stoneImg, stone.x - stone.radius, stone.y - stone.radius,  stone.radius*2, stone.radius*2);
 }
+
+
+// Restarting Event
+restartBtn.onclick = (e) =>{location.reload()}
+document.addEventListener("keydown", (e)=> {
+   if(e.keyCode === 32){
+        location.reload()
+        restartBtn.style.color = "red";} 
+})
 
 
 function handleKeydown(e)
