@@ -1,5 +1,5 @@
 # this a game's projectg to learn git and html canvas
-##Game's favicon: 
+## Game's favicon: 
 <img width="32" alt="favicon" src="https://github.com/cjjjjjjk/moving_game/assets/119516491/b4989103-6a40-4de7-990a-14af1dc57dcd">
 
 ## Game's play:
